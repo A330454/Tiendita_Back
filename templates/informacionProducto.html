@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>MiTiendita.com</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+
+      #botoncomprar{
+        font-size:250%;
+        color:green;
+        margin-left:auto; 
+        margin-right:auto; 
+        margin: top auto;
+      }
+      
+      #botonvender{
+        font-size:250%; 
+        color:red;
+      }
+      </style>
+</head>
+<body>
+  <div>
+    <h1> Informacion de Producto</h1>
+    <a style="margin-left: 80%; font-size:200%;" href="http://127.0.0.1:8000/home/">Regresar</a>
+  </div>
+  <div> 
+    <table style="width: 80%; margin: 200px; margin-bottom: 25px; margin-top: 1%; ">
+    <tr>
+      <th><center><img style="width: cover; float: left" src={{producto.imagen}} width=100% height="400"/></center></th>
+      <th style="width: 60%;"><p style="margin: 1px;"><center style="font-size:500%;">{{producto.nombre.title}}</center></p>
+      <div><p><center style="font-size:200%;">L@s {{producto.nombre.title}} son nutritiv@s</center></p></div>
+      </th>
+    </tr>
+    </table>
+  </div>
+  <div><center style="font-size:500%;">Precio: {{producto.display_price}}         Stock: {{producto.cantidad}}         Vendidos: {{producto.calcula_ventas}}<center></div>
+  <div>
+    <center>
+      <div>
+        <form action="compra/{{producto.pk}}"><button type="submit" id="botoncomprar">Comprar</button></form><form action="vender/{{producto.pk}}"><button type="submit" id="botonvender">Vender</button></form>
+      </div>
+    </center>
+  </div>
+</body>
+</html>

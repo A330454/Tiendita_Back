@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>MiTiendita.com</title>
+    <style>
+      table, th, td {
+    border: 1px solid black;
+  }
+    </style>
+</head>
+<body>
+    <h1> Bienvenido a la tienda</h1>
+    {% for x in productos %}
+    <table style="width:100%">
+      {{ producto.cantidad}}
+        <tr>
+          <td width="400" height="400" class="clickable"><img src={{x.imagen}} width="400" height="400"/></td>
+          {% if x.cantidad > 0 %}
+          <td style="font-size:500%; background-color: green;" class="clickable"><center><a href="producto/{{x.pk}}">{{x.nombre.title}}</a></center><div><center>${{x.display_price}}</center></div>
+          {% else %}
+          <td style="font-size:500%; background-color: red;" class="clickable"><center><a href="producto/{{x.pk}}">{{x.nombre.title}}</a></center><div><center>${{x.display_price}}</center></div>
+          {% endif %}
+          </td>
+        </tr>
+      </table>
+    {% endfor %}
+</body>
+</html>
